@@ -1,0 +1,15 @@
+# systemd unit file for launching dashboard
+[Unit]
+Description=Dashboard Service, Browser kiosk
+Requires=networking.service
+After=networking.service
+
+[Service]
+TimeoutStartSec=60
+ExecStart=/usr/bin/xinit
+User=pi
+SuccessExitStatus=1
+
+[Install]
+WantedBy=multi-user.target
+

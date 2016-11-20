@@ -1,0 +1,22 @@
+#! /bin/sh
+# Sys V init script to launch dashboard
+# /etc/init.d/dashboard
+case "$1" in
+  start)
+    echo "Starting dashboard"
+    # run application you want to start
+    /bin/su pi -c xinit &
+    ;;
+  stop)
+    echo "Stopping dashboard"
+    # kill application you want to stop
+    killall xinit
+    ;;
+  *)
+    echo "Usage: /etc/init.d/dashboard {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
