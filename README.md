@@ -21,6 +21,12 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo rpi-update
 
+# patch fstab
+sudo cat tmpfs.fstab >> /etc/fstab
+
+# disable swap
+sudo dphys-swapfile swapoff
+
 sudo reboot
 ```
 
@@ -35,7 +41,7 @@ i.e. your Grafana Dasboad Playlist, Kibana Dashboard, etc.
 ```
 sudo cp dashboard.service  /etc/systemd/system/dashboard.service
 sudo systemctl daemon-reload
-sudo systemctl enable dashboard.servce
+sudo systemctl enable dashboard.service
 sudo systemctl start dashboard.service
 ```
 The raspberry Pi will start the graphical user interface in fullscreen 
