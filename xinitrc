@@ -11,14 +11,15 @@ xset s noblank     # don't blank the video device
 
 # launch browser on website 
 exec chromium-browser \
---kiosk \
 --incognito \
 --disable-restore-session-state \
---start-maximized \
-$DASHBOARD_URL
+--user-data-dir=/tmp/chromium \
+--window-size=1920,1080 \
+--start-fullscreen \
+--app=$DASHBOARD_URL
 
 # you may need these
 # --ignore-certificate-errors \
 # --disable-web-security \
 #
-#
+
