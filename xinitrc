@@ -10,6 +10,7 @@ xset -dpms         # disable DPMS (Energy Star) features.
 xset s noblank     # don't blank the video device
 
 # launch browser on website 
+# maybe check out: https://peter.sh/experiments/chromium-command-line-switches/
 exec chromium-browser \
 --incognito \
 --disable-restore-session-state \

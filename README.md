@@ -34,6 +34,14 @@ sudo sh -c 'echo "Storage=volatile" >> /etc/systemd/journald.conf'
 # allow any user to start X
 sudo sed -i 's/console/anybody/' /etc/X11/Xwrapper.config
 
+# noswap kernel cmdline
+sudo sed -i ' 1 s/.*/& noswap/' /boot/cmdline.txt 
+sudo apt-get remove dphys-swapfile
+
+# cleanup 
+sudo apt-get autoremove
+
+
 sudo reboot
 ```
 
