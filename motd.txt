@@ -1,0 +1,14 @@
+# make root read-only:
+
+# check for open files
+lsof / | awk 'NR==1 || $4~/[0-9]+[uw]/'
+
+# stop processes:
+systemctl stop packagekit # open file for its db
+systemctl stop dashboard # (for chrome open files cert cache
+
+# remount root fs read-only:
+mount -o remount,ro /
+
+systemctl start packagekit dashboard
+
