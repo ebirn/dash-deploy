@@ -1,0 +1,6 @@
+vim
+chromium-browser
+xserver-xorg-legacy
+unclutter
+xinit
+libgtk-3-0
