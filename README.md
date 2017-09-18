@@ -6,6 +6,8 @@ rapid dashbboard deployment on Raspberry Pi
 ssh login to raspberry and clone the repository
 ```
 ssh -l pi raspberrypi.local
+sudo apt-get update
+sudo apt install git
 git clone https://github.com/ebirn/dash-deploy
 ```
 Now form within the cloned directory `dash-deploy`
@@ -16,7 +18,6 @@ sudo apt install --yes $(cat packages.txt  | tr \\n ' ')
 ```
 Maybe follow up with a package update and reboot the system for good measure (and new kernels)
 ```
-sudo apt-get update
 sudo apt-get upgrade
 sudo rpi-update
 
@@ -39,7 +40,7 @@ sudo apt-get remove dphys-swapfile
 # cleanup 
 sudo apt-get autoremove
 
-
+# reboot for new kernel and firmware
 sudo reboot
 ```
 

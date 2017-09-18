@@ -1,14 +1,15 @@
 # make root read-only:
 
+sudo apt install lsof
+
 # check for open files
-lsof / | awk 'NR==1 || $4~/[0-9]+[uw]/'
+sudo lsof / | awk 'NR==1 || $4~/[0-9]+[uw]/'
 
 # stop processes:
-systemctl stop packagekit # open file for its db
-systemctl stop dashboard # (for chrome open files cert cache
+sudo systemctl stop dashboard # (for chrome open files cert cache
 
 # remount root fs read-only:
-mount -o remount,ro /
+sudo mount -o remount,ro /
 
-systemctl start packagekit dashboard
+sudo systemctl start dashboard
 
